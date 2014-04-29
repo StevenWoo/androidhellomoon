@@ -8,6 +8,7 @@ import android.media.MediaPlayer;
  */
 public class AudioPlayer extends Object {
     private MediaPlayer mPlayer;
+    private boolean mPaused = false;
     public void stop(){
         if( mPlayer != null){
             mPlayer.release();
@@ -26,5 +27,17 @@ public class AudioPlayer extends Object {
 
         });
         mPlayer.start();
+    }
+    public void pause(){
+        if( mPlayer != null ){
+            if(!mPaused) {
+                mPlayer.pause();
+                mPaused = true;
+            }
+            else{
+                mPlayer.start();
+                mPaused = false;
+            }
+        }
     }
 }
