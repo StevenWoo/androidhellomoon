@@ -18,6 +18,11 @@ public class HelloMoonFragment extends Fragment {
     private AudioPlayer mPlayer = new AudioPlayer();
 
     @Override
+    public void onCreate(Bundle saveInstanceState){
+        super.onCreate(saveInstanceState);
+        setRetainInstance(true);
+    }
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle saveInstanceState){
         View v = inflater.inflate(R.layout.fragment_hello_moon, parent);
         mPlayButton = (Button)v.findViewById(R.id.hellomoon_playButton);
